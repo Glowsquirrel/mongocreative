@@ -16,18 +16,54 @@ $(document).ready(function(){
       postComment("trap",$("#trapcomment").val(), "trapcomments");
   });
   
-  $("#getComments").click(function() {
-      $.getJSON('comment', function(data) {
-          var everything = "<ul>";
-          for (var comment in data) {
-              var com = data[comment];
-              everything += "<li>" + com.Comment + "</li>";
-          }
-          everything += "</ul>";
-          $("#status").html("Updated all comments");
-          $("#comments").html(everything);
-      });
+  $("#lensup").click(function(){
+    console.log('vote up');
+    vote('lensflare', true);
+    getVotes('lensflare', 'lensupvotes', 'lensdownvotes');
   });
+  
+  $("#lensdown").click(function(){
+    console.log('vote down');
+    vote('lensflare', false);
+    getVotes('lensflare', 'lensupvotes', 'lensdownvotes');
+  });
+  
+  $("#knucklesup").click(function(){
+    console.log('vote up');
+    vote('knuckles', true);
+    getVotes('knuckles', 'knucklesupvotes', 'knucklesdownvotes');
+  });
+  
+  $("#knucklesdown").click(function(){
+    console.log('vote down');
+    vote('knuckles', false);
+    getVotes('knuckles', 'knucklesupvotes', 'knucklesdownvotes');
+  });
+  
+  $("#hitmarkerup").click(function(){
+    console.log('vote up');
+    vote('hitmarker', true);
+    getVotes('hitmarker', 'hitmarkerupvotes', 'hitmarkerdownvotes');
+  });
+  
+  $("#hitmarkerdown").click(function(){
+    console.log('vote down');
+    vote('hitmarker', false);
+    getVotes('hitmarker', 'hitmarkerupvotes', 'hitmarkerdownvotes');
+  });
+  
+  $("#trapup").click(function(){
+    console.log('vote up');
+    vote('trap', true);
+    getVotes('trap', 'trapupvotes', 'trapdownvotes');
+  });
+  
+  $("#trapdown").click(function(){
+    console.log('vote down');
+    vote('trap', false);
+    getVotes('trap', 'trapupvotes', 'trapdownvotes');
+  });
+  
   
   $("#deleteComments").click(function() {
       $.getJSON('delete', function(data) {
@@ -37,34 +73,45 @@ $(document).ready(function(){
       });
   });
   
-  $("#queryComments").click(function() {
-      var url = "query";
-      var name = $("#query").val();
-      var json = {
-        Name:name
-      };
-      
-      $.getJSON('query', json, function(data) {
-        
-        var everything = "<ul>";
-        for (var comment in data) {
-          var com = data[comment];
-          everything += "<li>" + com.Name + "<br>" + com.Comment + "</li>";
-        }
-        everything += "</ul>";
-        
-        $("#status").html("Retrieved comments for: " + name);
-        $("#comments").html(everything);
-      });
-  });
-  
-  //grab lens flare comments
-  $("#test").html("completed");
+  //initialize comments from DB
   getComments("lensflare", "lenscomments");
   getComments("knuckles", "knucklescomments");
   getComments("hitmarker", "hitmarkercomments");
   getComments("trap", "trapcomments");
+  
+  getVotes('lensflare', 'lensupvotes', 'lensdownvotes');
+  getVotes('knuckles', 'knucklesupvotes', 'knucklesdownvotes');
+  getVotes('hitmarker', 'hitmarkerupvotes', 'hitmarkerdownvotes');
+  getVotes('trap', 'trapupvotes', 'trapdownvotes');
+
 });
+
+function getVotes(type, outputup, outputdown) {
+  console.log('retrieve votes');
+  var json = {Type:type};
+  //var json = JSON.stringify(obj);
+  
+  $.getJSON('vote', json, function(data) {
+    $('#'+outputup).html(data[0].Up);
+    $('#'+outputdown).html(data[0].Down);
+  });
+}
+
+function vote(type, up) {
+  var obj = {Type:type, Vote:up};
+  var json = JSON.stringify(obj);
+  
+  $.ajax({
+    url:'vote',
+    type:"POST",
+    data:json,
+    contentType:"application/json; charset=utf-8",
+    success: function(data, textStatus) {
+        console.log(data);
+    }
+  });
+  
+}
 
 function getComments(memetype, output) {
   var json = {
@@ -72,7 +119,7 @@ function getComments(memetype, output) {
   };
   
   $.getJSON('query', json, function(data) {
-    console.log(data);
+    //console.log(data);
     if (data[0] == null) {
       $('#' + output).html("No comments have been posted yet. Be the first!");
       return;
@@ -101,20 +148,3 @@ function postComment(type, comment, output) {
       }
   });
 }
-
-  $("#postComment").click(function(){
-      var myobj = {Type:"lensflare",Comment:$("#comment").val()};
-      var jobj = JSON.stringify(myobj);
-      
-      var url = "comment";
-      $.ajax({
-          url:url,
-          type:"POST",
-          data:jobj,
-          contentType:"application/json; charset=utf-8",
-          success: function(data, textStatus) {
-              $("#status").html("Posted comment");
-              $("#comments").html("");
-          }
-      });
-  });

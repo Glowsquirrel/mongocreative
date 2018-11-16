@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
+  padding: 3vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.commentbox {
+  min-height: 350px;
+  max-height: 350px;
+  overflow: hidden; 
+  overflow-y:scroll;
+}
+
+.memes {
+  height: 350px;
+  width: 500px;
+}
+
+h3, h5 {
+  text-align: center;
+}
+
+.pos {
+  background-color: green;
+  color: white;
+  text-align: center;
+  width: 120px;
+  border-style: solid;
+  border-color: green;
+}
+
+.neg {
+  background-color: red;
+  color: white;
+  text-align: center;
+  width: 120px;
+  border-style: solid;
+  border-color: red;
 }

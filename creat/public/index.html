@@ -12,38 +12,70 @@
 
     <body style="background-color:#f4f4f4">
         <div class="container">
-            <h3>What superpower would you choose?</h3>
+            <h3>What real life meme superpower would you choose?</h3>
             <hr>
+            
+            
             <div class="row">
                 <div class="col">
                     <div>
-                        <h5>Lens Flare</h5>
-                        <img src="img/lensflare.jpeg" alt="Lens flare" width="500" >
-                        <p>Able to use lens flares from your eyes at will.</p>
+                        <h3>Lens Flare</h3>
+                        <img class="memes" src="img/lensflare.jpeg" alt="Lens flare">
+                        <br>
+                        <p>Your eyes can now glow different colors at your command.</p>
+                        
+                        <input class="pos" type="submit" id="lensup" value="I'd use it"</input>
+                        <div id='lensupvotes' style="display:inline">0</div>
+                        <br>
+                        <input class="neg" type="submit" id="lensdown" value="Not my style"</input>
+                        <div id='lensdownvotes' style="display:inline">0</div>
                     </div>
+                </div>
                     
-                    <p id="lenscomments"> no change</p>
+                <div class="col">
+                    <br>
+                    <h5>Comments</h5>
+                    <nav>
+                        <div id="lenscomments" class="commentbox"> no change</div>
+                    </nav>
                     
-                    <div class="form-group">
+                    <div class="form-group" id="lenssubmit">
                         <input type="text" id="lenscomment" placeholder="Add a comment"><br>
                         <input class="mybtn" type="submit" id="postlens" value="Post Comment"</input>
                     </div>
                     
                 </div>
                 
+            </div>
+            
+            <hr>
+            
+            <div class="row">
                 <div class="col">
                     <div>
-                        <h5>Ugandan Knuckles</h5>
-                        <img src="img/knuckles.jpg" alt="Uganda Knuckles" width="500">
-                        <p>Able to summon a small horde of Ugandan Knuckles to annoy your target 
-                        and anyone else in range.</p>
+                        <h3>Uganda Knuckles</h3>
+                        <img class="memes" src="img/knuckles.jpg" alt="Uganda Knuckles">
+                        <br>
+                        <p>Able to summon a small horde of Ugandan Knuckles to annoy everyone
+                        in the area, including yourself.</p>
                         <audio controls>
                             <source src="sound/dawae.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
                         </audio> 
+                        <br>
+                        
+                        <input class="pos" type="submit" id="knucklesup" value="I'd use it"</input>
+                        <div id='knucklesupvotes' style="display:inline">0</div>
+                        <br>
+                        <input class="neg" type="submit" id="knucklesdown" value="Not my style"</input>
+                        <div id='knucklesdownvotes' style="display:inline">0</div>
                     </div>
-                    
-                    <p id="knucklescomments"> no change</p>
+                </div>
+                
+                <div class="col">
+                    <br>    
+                    <h5>Comments</h5>
+                    <div id="knucklescomments" class="commentbox"> no change</div>
                     
                     <div class="form-group">
                         <input type="text" id="knucklescomment" placeholder="Add a comment"><br>
@@ -51,37 +83,70 @@
                     </div>
                 </div>
                 
+                
             </div>
+            
             <hr>
+            
+            
             <div class="row">
                 <div class="col">
                     <div>
-                        <h5>Hitmarker</h5>
-                        <img src="img/hitmarker.png" alt="Lens flare" width="500">
+                        <h3>Hitmarker</h3>
+                        <img class="memes" src="img/hitmarker.png" alt="Lens flare">
+                        <br>
                         <p>Able to spawn temporary hit markers accompanied with their sound when you or
                         someone around you interacts with an object.</p>
                         <audio controls>
                             <source src="sound/hitsound.mp3" type="audio/mpeg">
                         Your browser does not support the audio element.
-                        </audio> 
+                        </audio>
+                        <br>
+                        
+                        <input class="pos" type="submit" id="hitmarkerup" value="I'd use it"</input>
+                        <div id='hitmarkerupvotes' style="display:inline">0</div>
+                        <br>
+                        <input class="neg" type="submit" id="hitmarkerdown" value="Not my style"</input>
+                        <div id='hitmarkerdownvotes' style="display:inline">0</div>
                     </div>
-                    
-                    <p id="hitmarkercomments"> no change</p>
+                </div>
+                
+                <div class="col">
+                    <br>
+                    <h5>Comments</h5>
+                    <div id="hitmarkercomments" class="commentbox"> no change</div>
                     
                     <div class="form-group">
                         <input type="text" id="hitmarkercomment" placeholder="Add a comment"><br>
                         <input class="mybtn" type="submit" id="posthitmarker" value="Post Comment"</input>
                     </div>
                 </div>
-                
+            </div>
+            
+            <hr>
+            
+            <div class="row">
                 <div class="col">
                     <div>
-                        <h5>Trap Card</h5>
-                        <img src="img/trapcard.jpg" alt="Trap Card" width="500">
-                        <p>Able to create Yu-Gi-Oh! trap cards with any text or image out of thin air.</p>
+                        <h3>Trap Card</h3>
+                        <img class="memes" src="img/trapcard.jpg" alt="Trap Card">
+                        <br>
+                        <p>Able to create Yu-Gi-Oh! trap cards with any text or image 
+                        as a comeback out of thin air.</p>
+                        
+                        <input class="pos" type="submit" id="trapup" value="I'd use it"</input>
+                        <div id='trapupvotes' style="display:inline">0</div>
+                        <br>
+                        <input class="neg" type="submit" id="trapdown" value="Not my style"</input>
+                        <div id='trapdownvotes' style="display:inline">0</div>
                     </div>
                     
-                    <p id="trapcomments"> no change</p>
+                </div>
+                
+                <div class="col">
+                    <br>
+                    <h5>Comments</h5>
+                    <div id="trapcomments" class="commentbox"> no change</div>
                     
                     <div class="form-group">
                         <input type="text" id="trapcomment" placeholder="Add a comment"><br>
@@ -91,47 +156,8 @@
                 
             </div>
             
-            
-            
-            
-            <div class="row justify-content-around">
-                <div class="col align-self-start">
-                    <form onSubmit="return false;" class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="name">Name: </label>
-                            <div class="col-sm-10">
-                                <input type="text" id="name" placeholder="Name"><br>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Comment: </label>
-                            <div class="col-sm-10">
-                                <input type="text" id="comment" placeholder="Comment"><br>
-                            </div>
-                        </div>
-                        
-                        <input class="mybtn" type="submit" id="postComment" value="Post Comment"</input>
-                        <input class="mybtn" type="button" id="getComments" value="Get Comments"</input>
-                    </form>
-                    
-                </div>
-                <div class="col align-self-start">
-                    <form onSubmit="return false;"class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="query">Search: </label>
-                            <div class="col-sm-10">
-                                <input type="text" id="query" placeholder="Search by name"><br>
-                            </div>
-                        </div>
-                        <input class="mybtn" type="submit" id="queryComments" value="Search"></input>
-                    </form>
-                    
-                </div>
-            
     
-                <div class="col align-self-center">
-                    <input class="mybtn" type="submit" id="deleteComments" value="Delete All"></input>
-                </div>
+                
                 
             </div>
             <br>
@@ -140,6 +166,13 @@
                 
                 <div id="comments"></div>
             </div>
+            
+            <!--
+            <div class="col align-self-center">
+                    <input class="mybtn" type="submit" id="deleteComments" value="Delete All"></input>
+            </div>
+            -->
+            
         </div>
     </body>
 </html>
